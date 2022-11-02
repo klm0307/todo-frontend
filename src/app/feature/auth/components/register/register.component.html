@@ -1,0 +1,38 @@
+<form
+  [formGroup]="formulario"
+  (ngSubmit)="register()"
+  class="flex flex-col space-y-2"
+>
+  <app-input
+    validate
+    formControlName="name"
+    type="text"
+    placeholder="Nombre"
+  ></app-input>
+  <app-input validate formControlName="email" type="email" placeholder="Email">
+  </app-input>
+  <app-input-password
+    validate
+    formControlName="password"
+    placeholder="Contraseña"
+  ></app-input-password>
+  <app-input-password
+    validate
+    formControlName="confirmPassword"
+    placeholder="Confirmar contraseña"
+  ></app-input-password>
+  <app-button
+    styleClass="my-2"
+    text="Registrarse"
+    type="submit"
+    variant="primary"
+    [disabled]="!this.formIsValid()"
+  ></app-button>
+  <app-button
+    styleClass="my-1"
+    text="Iniciar sesión"
+    type="button"
+    variant="outline-primary"
+    (click)="handleLoginButton()"
+  ></app-button>
+</form>

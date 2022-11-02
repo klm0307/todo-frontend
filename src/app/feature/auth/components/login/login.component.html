@@ -1,0 +1,38 @@
+<form
+  [formGroup]="formulario"
+  (ngSubmit)="handleLoginButton()"
+  class="flex flex-col space-y-2"
+>
+  <app-input
+    validate
+    formControlName="email"
+    type="email"
+    placeholder="Email"
+  ></app-input>
+  <app-input-password
+    validate
+    formControlName="password"
+    placeholder="Contraseña"
+  ></app-input-password>
+  <app-button
+    styleClass="my-2"
+    text="Iniciar sesión"
+    variant="primary"
+    type="submit"
+    [disabled]="!this.formIsValid()"
+  ></app-button>
+  <app-button
+    styleClass="my-1"
+    text="Registrarse"
+    type="button"
+    variant="outline-primary"
+    (click)="handleSignUpButton()"
+  ></app-button>
+  <div class="text-center">
+    <a
+      class="text-primary font-bold uppercase text-sm"
+      routerLink="/auth/reset-password"
+      >Olvido su contraseña?</a
+    >
+  </div>
+</form>
